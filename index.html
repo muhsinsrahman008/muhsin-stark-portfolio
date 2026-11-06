@@ -1,7 +1,8 @@
 
 /* =====================================================
    MSR — STARK INTERFACE
-   ARC REACTOR ENGINE v5.0
+   ARC REACTOR ENGINE v6.0
+   FIXED LAYERS • METALLIC CORE • ROTATING SYSTEM
    ===================================================== */
 
 :root {
@@ -49,7 +50,7 @@ body::before {
   pointer-events: none;
   background:
     linear-gradient(rgba(0,234,255,.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,234,255,.035) 1px, transparent 1px);
+    linear-gradient(90deg,rgba(0,234,255,.035) 1px,transparent 1px);
   background-size: 42px 42px;
 }
 
@@ -268,7 +269,9 @@ h1 span {
 
 /* =====================================================
    ARC REACTOR
-   METALLIC HOUSING + TRIANGULAR ENERGY CORE
+   LAYER 1: METALLIC HOUSING
+   LAYER 2: ENERGY RING
+   LAYER 3: TRIANGULAR CORE
    ===================================================== */
 
 .reactor-wrap {
@@ -307,7 +310,7 @@ h1 span {
   }
 }
 
-/* MAIN METALLIC BODY */
+/* ROTATING METALLIC BODY */
 
 .reactor {
   position: relative;
@@ -320,16 +323,17 @@ h1 span {
   background:
     radial-gradient(
       circle,
-      transparent 0 35%,
-      rgba(0,234,255,.95) 36% 37%,
-      transparent 38% 100%
+      #ffffff 0 2%,
+      #b9ffff 3% 5%,
+      #00eaff 6% 8%,
+      transparent 9%
     ),
     repeating-conic-gradient(
       from 0deg,
-      #101e2b 0deg 5deg,
-      #b9d2df 5deg 7deg,
-      #263e50 7deg 13deg,
-      #091725 13deg 16deg
+      #0b1926 0deg 4deg,
+      #b7d2df 4deg 6deg,
+      #263e50 6deg 9deg,
+      #101e2b 9deg 13deg
     );
 
   border: 8px solid #263e50;
@@ -348,14 +352,15 @@ h1 span {
   will-change: transform;
 }
 
-/* OUTER METAL RING */
+/* OUTER METAL RIM */
 
 .reactor::before {
   content: "";
   position: absolute;
-  inset: 13px;
+  inset: 12px;
   border-radius: 50%;
   border: 5px solid #9bb7c8;
+
   background:
     radial-gradient(
       circle,
@@ -363,99 +368,55 @@ h1 span {
       rgba(0,234,255,.08) 58%,
       transparent 75%
     );
+
   box-shadow:
     0 0 0 3px #142a3c,
     0 0 0 5px rgba(0,234,255,.85),
     0 0 16px rgba(0,234,255,.8),
     inset 0 0 15px rgba(0,234,255,.4);
+
   z-index: 1;
 }
 
-/* TRIANGULAR ENERGY FRAME */
+/* TRIANGULAR ENERGY CORE */
 
 .reactor::after {
   content: "";
   position: absolute;
-  inset: 29px;
-  clip-path: polygon(5% 12%, 95% 12%, 50% 94%);
-  background: linear-gradient(
-    145deg,
-    #ffffff 0%,
-    #a8faff 20%,
-    #00eaff 48%,
-    #087bff 78%,
-    #dfffff 100%
+  width: 68%;
+  height: 75%;
+  left: 16%;
+  top: 12%;
+
+  clip-path: polygon(
+    5% 5%,
+    95% 5%,
+    50% 96%
   );
+
+  background:
+    radial-gradient(
+      ellipse at 50% 48%,
+      #ffffff 0 3%,
+      #b9ffff 5%,
+      #00eaff 12%,
+      transparent 28%
+    ),
+    linear-gradient(
+      145deg,
+      #ffffff 0%,
+      #9efaff 18%,
+      #00dfff 48%,
+      #087bff 80%,
+      #dfffff 100%
+    );
+
   filter:
-    drop-shadow(0 0 4px #fff)
-    drop-shadow(0 0 10px #00eaff)
-    drop-shadow(0 0 22px #087bff);
+    drop-shadow(0 0 4px #ffffff)
+    drop-shadow(0 0 12px #00eaff)
+    drop-shadow(0 0 24px #087bff);
+
   z-index: 2;
-}
-
-/* INNER TRIANGLE + CORE */
-
-.reactor-wrap .reactor {
-  background:
-    radial-gradient(
-      circle at 50% 50%,
-      #ffffff 0 2%,
-      #c8ffff 3% 5%,
-      #00eaff 6% 9%,
-      transparent 10%
-    ),
-    repeating-conic-gradient(
-      from 0deg,
-      transparent 0deg 27deg,
-      #142b3d 27deg 31deg,
-      transparent 31deg 45deg
-    ),
-    radial-gradient(
-      circle,
-      #071522 0 40%,
-      #9bb9c9 41% 44%,
-      #10263a 45% 50%,
-      #d6f3ff 51% 54%,
-      #172d40 55% 61%,
-      #071522 62%
-    );
-}
-
-/* DARK INNER TRIANGLE */
-
-.reactor-wrap .reactor::before {
-  inset: 43px;
-  border: 0;
-  border-radius: 0;
-  clip-path: polygon(10% 12%, 90% 12%, 50% 88%);
-  background:
-    radial-gradient(
-      circle at 50% 55%,
-      #00dfff 0 3%,
-      #071522 18%,
-      #071522 100%
-    );
-  box-shadow:
-    0 0 0 2px #00eaff,
-    0 0 12px rgba(0,234,255,.8);
-  z-index: 3;
-}
-
-/* TRIANGLE EDGE LIGHT */
-
-.reactor-wrap .reactor::after {
-  inset: 28px;
-  clip-path: polygon(5% 12%, 95% 12%, 50% 94%);
-  background: linear-gradient(
-    180deg,
-    #eaffff,
-    #00dfff 48%,
-    #007bff
-  );
-  filter:
-    drop-shadow(0 0 3px #fff)
-    drop-shadow(0 0 9px #00eaff)
-    drop-shadow(0 0 18px #008cff);
 }
 
 /* ROTATION */
@@ -642,9 +603,7 @@ footer {
 @media (max-width: 800px) {
   header { padding: 17px 6%; }
 
-  .menu-btn {
-    display: block;
-  }
+  .menu-btn { display: block; }
 
   nav {
     display: none;
@@ -689,11 +648,8 @@ footer {
 
 @media (max-width: 420px) {
   .logo { font-size: 16px; }
-
   h1 { font-size: 36px; }
-
   .hero p { font-size: 18px; }
-
   .panel { padding: 22px; }
 
   .btn {
