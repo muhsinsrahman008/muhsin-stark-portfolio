@@ -1,0 +1,500 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050a12">
+<title>MUHSIN S RAHMAN | STARK INTERFACE</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cyan: #00eaff;
+  --blue: #087bff;
+  --bg: #050a12;
+  --panel: rgba(5, 25, 40, .75);
+  --text: #d9faff;
+  --muted: #7895a7;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Rajdhani', sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(rgba(0,234,255,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,234,255,.045) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  background: linear-gradient(transparent 50%, rgba(0,234,255,.018) 50%);
+  background-size: 100% 4px;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 7%;
+  background: rgba(3, 9, 17, .88);
+  border-bottom: 1px solid rgba(0,234,255,.2);
+  backdrop-filter: blur(15px);
+}
+
+.logo {
+  font-family: Orbitron, sans-serif;
+  color: var(--cyan);
+  font-size: 18px;
+  letter-spacing: 3px;
+}
+
+nav { display: flex; gap: 28px; }
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-family: Orbitron, sans-serif;
+  font-size: 10px;
+  transition: .3s;
+}
+
+nav a:hover { color: var(--cyan); }
+
+.menu-btn {
+  display: none;
+  color: var(--cyan);
+  background: none;
+  border: 0;
+  font-size: 25px;
+}
+
+section {
+  padding: 110px 8%;
+  scroll-margin-top: 65px;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  padding-top: 130px;
+}
+
+.hero-content { max-width: 650px; }
+
+.eyebrow {
+  color: var(--cyan);
+  font-family: Orbitron, sans-serif;
+  font-size: 12px;
+  letter-spacing: 4px;
+  margin-bottom: 25px;
+}
+
+h1 {
+  font-family: Orbitron, sans-serif;
+  font-size: clamp(35px, 6vw, 75px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+h1 span { color: var(--cyan); }
+
+.hero p {
+  color: var(--muted);
+  font-size: 21px;
+  line-height: 1.6;
+  max-width: 550px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #63ffae;
+  font-family: Orbitron, sans-serif;
+  font-size: 10px;
+  margin-top: 28px;
+  letter-spacing: 2px;
+}
+
+.status::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #63ffae;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #63ffae;
+}
+
+.actions { display: flex; gap: 15px; margin-top: 35px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block;
+  padding: 13px 25px;
+  color: var(--cyan);
+  border: 1px solid var(--cyan);
+  text-decoration: none;
+  font-family: Orbitron, sans-serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.btn:hover {
+  color: #001018;
+  background: var(--cyan);
+  box-shadow: 0 0 25px rgba(0,234,255,.4);
+}
+
+.reactor-wrap {
+  width: min(340px, 75vw);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.reactor {
+  width: 125px;
+  height: 125px;
+  border: 8px solid #9dfaff;
+  border-radius: 50%;
+  background: radial-gradient(circle, white 0%, #00eaff 15%, #0076ff 50%, transparent 72%);
+  box-shadow: 0 0 30px var(--cyan), 0 0 100px var(--blue);
+  animation: pulse 2s infinite alternate;
+}
+
+.orbit {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0,234,255,.6);
+  border-radius: 50%;
+  transform: rotateX(65deg);
+  animation: rotate 8s linear infinite;
+}
+
+.orbit.two {
+  width: 75%;
+  height: 130%;
+  transform: rotate(60deg);
+  animation-duration: 12s;
+}
+
+.orbit.three {
+  width: 130%;
+  height: 75%;
+  transform: rotate(-60deg);
+  animation-duration: 15s;
+}
+
+@keyframes rotate { to { rotate: 360deg; } }
+@keyframes pulse {
+  from { box-shadow: 0 0 20px var(--cyan), 0 0 60px var(--blue); }
+  to { box-shadow: 0 0 45px var(--cyan), 0 0 120px var(--blue); }
+}
+
+.section-title {
+  font-family: Orbitron, sans-serif;
+  font-size: clamp(22px, 4vw, 35px);
+  margin-bottom: 40px;
+}
+
+.section-title span { color: var(--cyan); }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid rgba(0,234,255,.2);
+  padding: 28px;
+  position: relative;
+  transition: .3s;
+}
+
+.panel:hover {
+  border-color: var(--cyan);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 35px rgba(0,234,255,.08);
+}
+
+.panel h3 {
+  color: var(--cyan);
+  font-family: Orbitron, sans-serif;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.panel p {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill {
+  padding: 12px 18px;
+  border: 1px solid rgba(0,234,255,.35);
+  color: var(--cyan);
+  background: rgba(0,234,255,.05);
+  font-family: Orbitron, sans-serif;
+  font-size: 11px;
+}
+
+.timeline {
+  border-left: 2px solid var(--cyan);
+  padding-left: 25px;
+}
+
+.timeline .panel { margin-bottom: 20px; }
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid rgba(0,234,255,.2);
+  color: var(--muted);
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: .8s;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media(max-width: 800px) {
+  header { padding: 17px 6%; }
+  .menu-btn { display: block; }
+  nav {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    padding: 25px;
+    background: #07111d;
+    border-bottom: 1px solid var(--cyan);
+  }
+  nav.active { display: flex; }
+  .hero {
+    flex-direction: column-reverse;
+    justify-content: center;
+    text-align: center;
+    gap: 35px;
+  }
+  .hero p { margin: auto; }
+  .actions, .contact-links { justify-content: center; }
+  .grid { grid-template-columns: 1fr; }
+  section { padding: 90px 7%; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">MSR_01</div>
+  <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
+  <nav id="nav">
+    <a href="#home">HOME</a>
+    <a href="#about">ABOUT</a>
+    <a href="#skills">SKILLS</a>
+    <a href="#projects">PROJECTS</a>
+    <a href="#journey">JOURNEY</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">STARK INTERFACE // INITIALIZED</div>
+    <h1>MUHSIN<br><span>S RAHMAN</span></h1>
+    <p>
+      BCA Student. Technology Enthusiast. Future Cybersecurity Professional.
+      Exploring the possibilities of code, AI and innovation.
+    </p>
+    <div class="status">SYSTEM ONLINE</div>
+    <div class="actions">
+      <a class="btn" href="#projects">EXPLORE PROJECTS</a>
+      <a class="btn" href="#contact">CONTACT ME</a>
+    </div>
+  </div>
+
+  <div class="reactor-wrap">
+    <div class="orbit"></div>
+    <div class="orbit two"></div>
+    <div class="orbit three"></div>
+    <div class="reactor"></div>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="section-title reveal">01 // <span>ABOUT ME</span></h2>
+  <div class="panel reveal">
+    <h3>IDENTITY PROFILE</h3>
+    <p>
+      I'm Muhsin S Rahman, a BCA student at Mohandas College of Engineering
+      and Technology, Kerala. I'm interested in technology, programming,
+      artificial intelligence and cybersecurity.
+      I'm currently building my skills and exploring new ideas through
+      practical projects.
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="section-title reveal">02 // <span>SKILL MATRIX</span></h2>
+  <div class="panel reveal">
+    <h3>TECHNOLOGY DATABASE</h3>
+    <div class="skills">
+      <div class="skill">C PROGRAMMING</div>
+      <div class="skill">C++</div>
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">CYBERSECURITY</div>
+      <div class="skill">AI EXPLORATION</div>
+      <div class="skill">ANDROID DEVELOPMENT</div>
+    </div>
+    <p style="margin-top:20px">
+      Skill levels: Learning and developing through practical experience.
+    </p>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title reveal">03 // <span>PROJECTS & BUILDS</span></h2>
+  <div class="grid">
+    <div class="panel reveal">
+      <h3>JARVIS ASSISTANT</h3>
+      <p>
+        An Android AI assistant project exploring voice interaction,
+        automation and intelligent features. Currently under development.
+      </p>
+    </div>
+    <div class="panel reveal">
+      <h3>PERSONAL PORTFOLIO</h3>
+      <p>
+        A personal website built to showcase my learning journey,
+        technical interests and projects.
+      </p>
+      <a class="btn" href="https://muhsinsrahman008.github.io/muhsinsrahman_portfolio/" target="_blank" rel="noopener">VIEW PORTFOLIO</a>
+    </div>
+  </div>
+</section>
+
+<section id="journey">
+  <h2 class="section-title reveal">04 // <span>MY JOURNEY</span></h2>
+  <div class="timeline">
+    <div class="panel reveal">
+      <h3>2026 — BCA JOURNEY</h3>
+      <p>Started my Bachelor of Computer Applications journey.</p>
+    </div>
+    <div class="panel reveal">
+      <h3>EXPLORING TECHNOLOGY</h3>
+      <p>Learning programming, web development, AI and cybersecurity.</p>
+    </div>
+    <div class="panel reveal">
+      <h3>FUTURE MISSION</h3>
+      <p>Build meaningful technology projects and grow into a cybersecurity professional.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title reveal">05 // <span>ESTABLISH CONNECTION</span></h2>
+  <div class="panel reveal">
+    <h3>OPEN COMMUNICATION CHANNEL</h3>
+    <p>Let's connect, share ideas and explore technology together.</p>
+    <div class="contact-links" style="margin-top:25px">
+      <a class="btn" href="https://github.com/muhsinsrahman008" target="_blank" rel="noopener">GITHUB</a>
+      <a class="btn" href="https://www.linkedin.com/in/muhsin-s-rahman-1673a7431/" target="_blank" rel="noopener">LINKEDIN</a>
+      <a class="btn" href="https://www.instagram.com/muhsin_s_rah_/" target="_blank" rel="noopener">INSTAGRAM</a>
+      <a class="btn" href="https://youtube.com/@muhsinsrahman" target="_blank" rel="noopener">YOUTUBE</a>
+      <a class="btn" href="https://www.facebook.com/share/1E4FCVzyrR/" target="_blank" rel="noopener">FACEBOOK</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>MUHSIN S RAHMAN // MSR_01</p>
+  <p style="margin-top:8px">DESIGNED WITH CURIOSITY. BUILT FOR THE FUTURE.</p>
+  <p style="margin-top:8px">© <span id="year"></span> ALL SYSTEMS OPERATIONAL.</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("nav").classList.toggle("active");
+}
+
+document.querySelectorAll("#nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("nav").classList.remove("active");
+  });
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
