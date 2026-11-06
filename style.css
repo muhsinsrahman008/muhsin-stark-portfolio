@@ -1,7 +1,8 @@
+
 /* =====================================================
-   MSR_01 — STARK INTERFACE
-   STYLE ENGINE v4.0
-   ROTATING TRIANGULAR ARC REACTOR
+   MSR — STARK INTERFACE
+   COMPLETE STYLE ENGINE v7.0
+   ARC REACTOR • METALLIC HOUSING • HOLLOW ENERGY CORE
    ===================================================== */
 
 :root {
@@ -39,7 +40,7 @@ body {
   line-height: 1.6;
 }
 
-/* BACKGROUND SYSTEM */
+/* BACKGROUND */
 
 body::before {
   content: "";
@@ -48,8 +49,8 @@ body::before {
   z-index: -2;
   pointer-events: none;
   background:
-    linear-gradient(rgba(0, 234, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 234, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(rgba(0,234,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg,rgba(0,234,255,.035) 1px,transparent 1px);
   background-size: 42px 42px;
 }
 
@@ -59,11 +60,10 @@ body::after {
   inset: 0;
   z-index: 50;
   pointer-events: none;
-  opacity: 0.16;
+  opacity: .16;
   background: repeating-linear-gradient(
-    transparent 0px,
-    transparent 3px,
-    rgba(0, 234, 255, 0.025) 4px
+    transparent 0 3px,
+    rgba(0,234,255,.025) 4px
   );
 }
 
@@ -74,22 +74,13 @@ body::after {
 
 /* SCROLLBAR */
 
-::-webkit-scrollbar {
-  width: 7px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg);
-}
-
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb {
   background: var(--blue);
   border-radius: 20px;
 }
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--cyan);
-}
+::-webkit-scrollbar-thumb:hover { background: var(--cyan); }
 
 /* HEADER */
 
@@ -103,7 +94,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(3, 9, 17, 0.88);
+  background: rgba(3,9,17,.88);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(18px);
 }
@@ -130,7 +121,7 @@ nav a {
   font-size: 10px;
   text-decoration: none;
   letter-spacing: 1px;
-  transition: color 0.3s ease;
+  transition: color .3s ease;
 }
 
 nav a::after {
@@ -142,16 +133,11 @@ nav a::after {
   height: 1px;
   background: var(--cyan);
   box-shadow: 0 0 10px var(--cyan);
-  transition: width 0.3s ease;
+  transition: width .3s ease;
 }
 
-nav a:hover {
-  color: var(--cyan);
-}
-
-nav a:hover::after {
-  width: 100%;
-}
+nav a:hover { color: var(--cyan); }
+nav a:hover::after { width: 100%; }
 
 .menu-btn {
   display: none;
@@ -180,7 +166,7 @@ section {
 
 .section-title span {
   color: var(--cyan);
-  text-shadow: 0 0 15px rgba(0, 234, 255, 0.3);
+  text-shadow: 0 0 15px rgba(0,234,255,.3);
 }
 
 /* HERO */
@@ -194,9 +180,7 @@ section {
   padding-top: 130px;
 }
 
-.hero-content {
-  max-width: 650px;
-}
+.hero-content { max-width: 650px; }
 
 .eyebrow {
   color: var(--cyan);
@@ -216,7 +200,7 @@ h1 {
 
 h1 span {
   color: var(--cyan);
-  text-shadow: 0 0 25px rgba(0, 234, 255, 0.3);
+  text-shadow: 0 0 25px rgba(0,234,255,.3);
 }
 
 .hero p {
@@ -226,7 +210,7 @@ h1 span {
   line-height: 1.6;
 }
 
-/* SYSTEM STATUS */
+/* STATUS */
 
 .status {
   display: inline-flex;
@@ -250,9 +234,7 @@ h1 span {
 }
 
 @keyframes statusPulse {
-  50% {
-    opacity: 0.3;
-  }
+  50% { opacity: .3; }
 }
 
 /* BUTTONS */
@@ -270,25 +252,24 @@ h1 span {
   padding: 13px 25px;
   color: var(--cyan);
   border: 1px solid var(--cyan);
-  background: rgba(0, 234, 255, 0.035);
+  background: rgba(0,234,255,.035);
   font-family: var(--font-heading);
   font-size: 10px;
   letter-spacing: 1px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 }
 
 .btn:hover {
   color: var(--bg);
   background: var(--cyan);
-  box-shadow: 0 0 25px rgba(0, 234, 255, 0.4);
+  box-shadow: 0 0 25px rgba(0,234,255,.4);
   transform: translateY(-3px);
 }
 
 /* =====================================================
-   ROTATING ARC REACTOR
-   CIRCULAR METAL HOUSING
-   TRIANGULAR ENERGY CORE
+   ARC REACTOR v7
+   CSS-ONLY LAYERED REACTOR
    ===================================================== */
 
 .reactor-wrap {
@@ -299,18 +280,18 @@ h1 span {
   place-items: center;
   position: relative;
   isolation: isolate;
-  transition: transform 0.25s ease-out;
+  transition: transform .25s ease-out;
 }
 
-/* BACKGROUND ENERGY HALO */
+/* ENERGY HALO */
 
 .reactor-wrap::before {
   content: "";
   position: absolute;
-  width: 70%;
-  height: 70%;
+  width: 72%;
+  height: 72%;
   border-radius: 50%;
-  background: rgba(0, 190, 255, 0.24);
+  background: rgba(0,190,255,.28);
   filter: blur(55px);
   z-index: -2;
   animation: reactorHalo 3s ease-in-out infinite alternate;
@@ -318,291 +299,196 @@ h1 span {
 
 @keyframes reactorHalo {
   from {
-    transform: scale(0.82);
-    opacity: 0.45;
+    transform: scale(.82);
+    opacity: .4;
   }
-
   to {
     transform: scale(1.18);
-    opacity: 0.95;
+    opacity: .95;
   }
 }
 
-/* MAIN REACTOR BODY */
+/* MAIN METALLIC HOUSING */
 
 .reactor {
+  --reactor-size: 220px;
+
   position: relative;
-  width: 220px;
-  height: 220px;
+  width: var(--reactor-size);
+  height: var(--reactor-size);
   border-radius: 50%;
   isolation: isolate;
+  overflow: visible;
 
   background:
+    /* Central energy light */
     radial-gradient(
-      circle,
-      transparent 0 43%,
-      rgba(0, 234, 255, 0.9) 44%,
-      transparent 45%
+      circle at center,
+      #ffffff 0 2%,
+      #d8ffff 3% 4%,
+      #00eaff 5% 7%,
+      rgba(0,234,255,.3) 8% 10%,
+      transparent 11%
     ),
+
+    /* Radial mechanical support bars */
     repeating-conic-gradient(
       from 0deg,
-      #101e2b 0deg 3deg,
-      #b7d2df 3deg 4deg,
-      #263e50 4deg 9deg,
-      #0b1926 9deg 11deg
+      transparent 0deg 10deg,
+      #071522 10deg 12deg,
+      #7896a9 12deg 13deg,
+      transparent 13deg 22.5deg
     ),
-    conic-gradient(
-      #d9f5ff,
-      #263d50,
-      #9bb7c7,
-      #12283b,
-      #e5faff,
-      #20394d,
-      #a8c6d5,
-      #102437,
-      #d9f5ff
+
+    /* Inner dark chamber */
+    radial-gradient(
+      circle,
+      #071522 0 37%,
+      #162e40 38% 41%,
+      #a8c7d6 42% 44%,
+      #10263a 45% 49%,
+      #d9f6ff 50% 52%,
+      #172e42 53% 59%,
+      #071522 60% 100%
     );
 
-  border: 8px solid #233a4b;
+  border: 8px solid #263e50;
 
   box-shadow:
-    0 0 0 3px #829eae,
-    0 0 0 7px #152a3c,
-    0 0 15px rgba(0, 234, 255, 0.9),
-    0 0 40px rgba(0, 174, 255, 0.65),
-    inset 0 0 15px #020b14,
-    inset 0 0 35px rgba(0, 234, 255, 0.3);
+    0 0 0 2px #b5d0df,
+    0 0 0 6px #152a3c,
+    0 0 15px rgba(0,234,255,.85),
+    0 0 38px rgba(0,174,255,.55),
+    inset 0 0 18px #020b14,
+    inset 0 0 30px rgba(0,234,255,.15);
 
   animation:
-    reactorRotate 24s linear infinite,
+    reactorRotate 30s linear infinite,
     reactorBrightness 3s ease-in-out infinite alternate;
 
   will-change: transform;
 }
 
-/* METAL OUTER RIM */
+/* METALLIC OUTER RIM + ENERGY SEGMENTS */
 
 .reactor::before {
   content: "";
   position: absolute;
-  inset: 12px;
+  inset: 9px;
   border-radius: 50%;
-  border: 5px solid #9bb7c8;
+  border: 5px solid #8ba8b9;
 
   background:
-    radial-gradient(
-      circle,
-      transparent 0 55%,
-      rgba(0, 234, 255, 0.08) 56%,
-      transparent 70%
+    /* Bright segmented cyan perimeter */
+    repeating-conic-gradient(
+      from 0deg,
+      transparent 0deg 5deg,
+      #dfffff 5deg 6deg,
+      #00eaff 6deg 9deg,
+      transparent 9deg 15deg
     );
+
+  /* Keep the segments around the edge */
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 13px),
+    #000 calc(100% - 12px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 13px),
+    #000 calc(100% - 12px)
+  );
 
   box-shadow:
     0 0 0 3px #142a3c,
-    0 0 0 5px rgba(0, 234, 255, 0.8),
-    0 0 15px rgba(0, 234, 255, 0.9),
-    inset 0 0 15px rgba(0, 234, 255, 0.5);
-
-  z-index: 1;
-}
-
-/* TRIANGULAR ENERGY STRUCTURE */
-
-.reactor::after {
-  content: "";
-  position: absolute;
-  inset: 25px;
-
-  clip-path: polygon(
-    8% 18%,
-    92% 18%,
-    50% 92%
-  );
-
-  background: linear-gradient(
-    145deg,
-    #ffffff 0%,
-    #9ef7ff 18%,
-    #00dfff 45%,
-    #087bff 75%,
-    #dfffff 100%
-  );
-
-  filter:
-    drop-shadow(0 0 5px #ffffff)
-    drop-shadow(0 0 12px #00eaff)
-    drop-shadow(0 0 22px #087bff);
+    0 0 0 5px rgba(0,234,255,.75),
+    0 0 13px rgba(0,234,255,.85),
+    inset 0 0 12px rgba(0,234,255,.45);
 
   z-index: 2;
 }
 
-/* INNER TRIANGLE CUTOUT */
+/* HOLLOW INVERTED TRIANGULAR ENERGY FRAME */
 
-.reactor {
-  --triangle-cutout: #071522;
-}
+.reactor::after {
+  content: "";
+  position: absolute;
+  width: 69%;
+  height: 75%;
+  left: 15.5%;
+  top: 11%;
 
-/* INNER TRIANGLE IS CREATED USING A ROTATING ENERGY LAYER */
-
-.reactor {
-  background-color: #071522;
-}
-
-/* ENERGY SEGMENTS AND RADIAL SUPPORTS */
-
-.reactor-wrap .reactor {
-  background:
-    radial-gradient(
-      circle at center,
-      #ffffff 0 2%,
-      #bafaff 3% 5%,
-      #00dfff 6% 9%,
-      transparent 10% 100%
-    ),
-    repeating-conic-gradient(
-      from 0deg,
-      transparent 0deg 27deg,
-      #101e2b 27deg 31deg,
-      transparent 31deg 45deg
-    ),
-    radial-gradient(
-      circle,
-      #0a1c2c 0 42%,
-      #9bb9c9 43% 45%,
-      #10263a 46% 51%,
-      #d6f3ff 52% 54%,
-      #172d40 55% 61%,
-      transparent 62%
-    );
-
-  overflow: visible;
-}
-
-/* TRIANGLE FRAME — LAYERED METAL EFFECT */
-
-.reactor-wrap .reactor::after {
-  inset: 27px;
-  clip-path: polygon(
-    5% 18%,
-    95% 18%,
-    50% 94%
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #c8ffff 12%,
+    #00eaff 38%,
+    #087bff 72%,
+    #dfffff 100%
   );
 
-  background:
-    linear-gradient(
-      180deg,
-      #eaffff,
-      #00dfff 45%,
-      #007bff
-    );
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    50% 100%
+  );
+
+  /* Cut out the center to make a hollow triangular frame */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  padding: 7px;
 
   filter:
     drop-shadow(0 0 3px #ffffff)
     drop-shadow(0 0 9px #00eaff)
-    drop-shadow(0 0 18px #008cff);
+    drop-shadow(0 0 18px #087bff);
+
+  z-index: 4;
 }
 
-/* INNER DARK TRIANGLE */
-
-.reactor-wrap {
-  --inner-triangle: #071522;
-}
-
-.reactor-wrap .reactor {
-  outline: none;
-}
-
-/* A SECOND ENERGY SHAPE INSIDE THE TRIANGLE */
-
-.reactor-wrap .reactor::before {
-  inset: 42px;
-  border: 0;
-  border-radius: 0;
-  clip-path: polygon(
-    10% 12%,
-    90% 12%,
-    50% 88%
-  );
-
-  background: #071522;
-
-  box-shadow:
-    inset 0 0 12px rgba(0, 234, 255, 0.65),
-    0 0 0 2px #00eaff,
-    0 0 14px rgba(0, 234, 255, 0.7);
-
-  z-index: 3;
-}
-
-/* CENTER ENERGY CORE */
-
-.reactor-wrap .reactor {
-  background:
-    radial-gradient(
-      circle at center,
-      #ffffff 0 3%,
-      #b9ffff 4% 7%,
-      #00dfff 8% 12%,
-      transparent 13%
-    ),
-    repeating-conic-gradient(
-      from 0deg,
-      transparent 0deg 27deg,
-      #142b3d 27deg 31deg,
-      transparent 31deg 45deg
-    ),
-    radial-gradient(
-      circle,
-      #0a1c2c 0 42%,
-      #9bb9c9 43% 45%,
-      #10263a 46% 51%,
-      #d6f3ff 52% 54%,
-      #172d40 55% 61%,
-      #071522 62%
-    );
-}
-
-/* FULL ROTATION */
+/* ROTATION */
 
 @keyframes reactorRotate {
-  from {
-    rotate: 0deg;
-  }
-
-  to {
-    rotate: 360deg;
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-/* ENERGY BRIGHTNESS */
+/* ENERGY PULSE */
 
 @keyframes reactorBrightness {
   from {
-    filter: brightness(0.88);
+    filter: brightness(.88);
     box-shadow:
-      0 0 0 3px #829eae,
-      0 0 0 7px #152a3c,
-      0 0 12px rgba(0, 234, 255, 0.65),
-      0 0 30px rgba(0, 174, 255, 0.45);
+      0 0 0 2px #829eae,
+      0 0 0 6px #152a3c,
+      0 0 12px rgba(0,234,255,.65),
+      0 0 30px rgba(0,174,255,.45),
+      inset 0 0 18px #020b14;
   }
 
   to {
     filter: brightness(1.2);
     box-shadow:
-      0 0 0 3px #c7efff,
-      0 0 0 7px #152a3c,
-      0 0 22px rgba(0, 234, 255, 1),
-      0 0 55px rgba(0, 174, 255, 0.85);
+      0 0 0 2px #d6f5ff,
+      0 0 0 6px #152a3c,
+      0 0 22px rgba(0,234,255,1),
+      0 0 55px rgba(0,174,255,.85),
+      inset 0 0 25px rgba(0,234,255,.3);
   }
 }
 
-/* ORIGINAL ORBIT SYSTEM — PRESERVED */
+/* INDEPENDENT ORBIT RINGS */
 
 .orbit {
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 1px solid rgba(0, 234, 255, 0.65);
+  border: 1px solid rgba(0,234,255,.65);
   border-radius: 50%;
   transform: rotateX(65deg);
   animation: orbitSpin 8s linear infinite;
@@ -624,9 +510,7 @@ h1 span {
 }
 
 @keyframes orbitSpin {
-  to {
-    rotate: 360deg;
-  }
+  to { rotate: 360deg; }
 }
 
 /* PANELS */
@@ -637,7 +521,7 @@ h1 span {
   background: var(--panel);
   border: 1px solid var(--border);
   backdrop-filter: blur(10px);
-  transition: 0.35s ease;
+  transition: .35s ease;
 }
 
 .panel::before {
@@ -690,18 +574,18 @@ h1 span {
 .skill {
   padding: 12px 18px;
   color: var(--cyan);
-  background: rgba(0, 234, 255, 0.05);
+  background: rgba(0,234,255,.05);
   border: 1px solid var(--border);
   font-family: var(--font-heading);
   font-size: 10px;
   letter-spacing: 1px;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .skill:hover {
-  background: rgba(0, 234, 255, 0.15);
+  background: rgba(0,234,255,.15);
   border-color: var(--cyan);
-  box-shadow: 0 0 15px rgba(0, 234, 255, 0.15);
+  box-shadow: 0 0 15px rgba(0,234,255,.15);
 }
 
 /* TIMELINE */
@@ -711,9 +595,7 @@ h1 span {
   padding-left: 25px;
 }
 
-.timeline .panel {
-  margin-bottom: 22px;
-}
+.timeline .panel { margin-bottom: 22px; }
 
 .timeline .panel::after {
   content: "";
@@ -727,12 +609,12 @@ h1 span {
   box-shadow: 0 0 15px var(--cyan);
 }
 
-/* REVEAL ANIMATION */
+/* REVEAL */
 
 .reveal {
   opacity: 0;
   transform: translateY(25px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity .8s ease, transform .8s ease;
 }
 
 .reveal.show {
@@ -751,16 +633,12 @@ footer {
   letter-spacing: 2px;
 }
 
-/* RESPONSIVE DESIGN */
+/* RESPONSIVE */
 
 @media (max-width: 800px) {
-  header {
-    padding: 17px 6%;
-  }
+  header { padding: 17px 6%; }
 
-  .menu-btn {
-    display: block;
-  }
+  .menu-btn { display: block; }
 
   nav {
     display: none;
@@ -772,13 +650,11 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     gap: 25px;
-    background: rgba(5, 15, 26, 0.98);
+    background: rgba(5,15,26,.98);
     border-bottom: 1px solid var(--cyan);
   }
 
-  nav.active {
-    display: flex;
-  }
+  nav.active { display: flex; }
 
   .hero {
     flex-direction: column-reverse;
@@ -787,22 +663,16 @@ footer {
     gap: 40px;
   }
 
-  .hero p {
-    margin: auto;
-  }
+  .hero p { margin: auto; }
 
   .actions,
   .contact-links {
     justify-content: center;
   }
 
-  .grid {
-    grid-template-columns: 1fr;
-  }
+  .grid { grid-template-columns: 1fr; }
 
-  section {
-    padding: 90px 7%;
-  }
+  section { padding: 90px 7%; }
 
   .reactor-wrap {
     width: min(290px, 70vw);
@@ -812,21 +682,10 @@ footer {
 /* SMALL MOBILE */
 
 @media (max-width: 420px) {
-  .logo {
-    font-size: 16px;
-  }
-
-  h1 {
-    font-size: 36px;
-  }
-
-  .hero p {
-    font-size: 18px;
-  }
-
-  .panel {
-    padding: 22px;
-  }
+  .logo { font-size: 16px; }
+  h1 { font-size: 36px; }
+  .hero p { font-size: 18px; }
+  .panel { padding: 22px; }
 
   .btn {
     padding: 12px 17px;
@@ -834,8 +693,7 @@ footer {
   }
 
   .reactor {
-    width: 170px;
-    height: 170px;
+    --reactor-size: 170px;
   }
 }
 
@@ -845,9 +703,9 @@ footer {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: .01ms !important;
   }
 }
