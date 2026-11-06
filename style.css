@@ -1,7 +1,8 @@
 
 /* =====================================================
    MSR_01 — STARK INTERFACE
-   STYLE ENGINE v1.0
+   STYLE ENGINE v2.0
+   GEOMETRIC ENERGY CORE EDITION
    ===================================================== */
 
 :root {
@@ -250,7 +251,9 @@ h1 span {
 }
 
 @keyframes statusPulse {
-  50% { opacity: 0.3; }
+  50% {
+    opacity: 0.3;
+  }
 }
 
 /* BUTTONS */
@@ -283,7 +286,11 @@ h1 span {
   transform: translateY(-3px);
 }
 
-/* ARC REACTOR */
+/* =====================================================
+   GEOMETRIC ENERGY CORE
+   NEW CENTER DESIGN — OLD ROUND GLOBE REMOVED
+   ORBITS PRESERVED
+   ===================================================== */
 
 .reactor-wrap {
   width: min(340px, 75vw);
@@ -292,35 +299,148 @@ h1 span {
   display: grid;
   place-items: center;
   position: relative;
+  isolation: isolate;
 }
 
-.reactor {
-  width: 125px;
-  height: 125px;
-  border: 8px solid #b9fcff;
+/* OUTER ENERGY HALO */
+
+.reactor-wrap::before {
+  content: "";
+  position: absolute;
+  width: 58%;
+  height: 58%;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    #fff 0%,
-    var(--cyan) 17%,
-    #0076ff 48%,
-    transparent 72%
+  background: rgba(0, 174, 255, 0.16);
+  filter: blur(35px);
+  z-index: -1;
+  animation: haloPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes haloPulse {
+  from {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+}
+
+/* MAIN CORE */
+
+.reactor {
+  position: relative;
+  width: 132px;
+  height: 132px;
+  border: 2px solid rgba(185, 252, 255, 0.95);
+  border-radius: 24%;
+  transform: rotate(30deg);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.95),
+      transparent 24% 68%,
+      rgba(0,234,255,0.8)
+    ),
+    conic-gradient(
+      from 25deg,
+      #063d70,
+      #00eaff,
+      #0753a5,
+      #b9fcff,
+      #063d70
+    );
+  clip-path: polygon(
+    50% 0%,
+    91% 22%,
+    100% 50%,
+    78% 91%,
+    50% 100%,
+    9% 78%,
+    0% 50%,
+    22% 9%
   );
   box-shadow:
-    0 0 30px var(--cyan),
-    0 0 65px var(--blue),
-    inset 0 0 25px white;
+    0 0 28px rgba(0, 234, 255, 0.9),
+    0 0 70px rgba(8, 123, 255, 0.75),
+    inset 0 0 28px rgba(255,255,255,0.8);
   animation: reactorPulse 2s ease-in-out infinite alternate;
 }
 
+/* INNER ARMOR LAYER */
+
+.reactor::before {
+  content: "";
+  position: absolute;
+  inset: 17px;
+  border: 2px solid rgba(232, 251, 255, 0.9);
+  background: radial-gradient(
+    circle,
+    #ffffff 0%,
+    #8ffaff 12%,
+    #00aaff 34%,
+    #063d70 72%
+  );
+  clip-path: polygon(
+    50% 0%,
+    91% 22%,
+    100% 50%,
+    78% 91%,
+    50% 100%,
+    9% 78%,
+    0% 50%,
+    22% 9%
+  );
+  box-shadow:
+    inset 0 0 22px #fff,
+    0 0 22px var(--cyan);
+}
+
+/* CENTRAL ENERGY DIAMOND */
+
+.reactor::after {
+  content: "";
+  position: absolute;
+  inset: 43px;
+  border: 2px solid #e8ffff;
+  background: radial-gradient(
+    circle,
+    #fff 0%,
+    #b9fcff 24%,
+    #00bfff 62%,
+    transparent 75%
+  );
+  clip-path: polygon(
+    50% 0%,
+    100% 50%,
+    50% 100%,
+    0% 50%
+  );
+  filter: drop-shadow(0 0 12px #fff);
+}
+
+/* ENERGY PULSE */
+
 @keyframes reactorPulse {
   from {
-    box-shadow: 0 0 20px var(--cyan), 0 0 55px var(--blue);
+    box-shadow:
+      0 0 20px var(--cyan),
+      0 0 55px var(--blue),
+      inset 0 0 15px white;
+    filter: brightness(0.9);
   }
+
   to {
-    box-shadow: 0 0 45px var(--cyan), 0 0 110px var(--blue);
+    box-shadow:
+      0 0 45px var(--cyan),
+      0 0 110px var(--blue),
+      inset 0 0 35px white;
+    filter: brightness(1.2);
   }
 }
+
+/* ORBIT SYSTEM — ORIGINAL ORBITS PRESERVED */
 
 .orbit {
   position: absolute;
@@ -347,7 +467,9 @@ h1 span {
 }
 
 @keyframes orbitSpin {
-  to { rotate: 360deg; }
+  to {
+    rotate: 360deg;
+  }
 }
 
 /* PANELS */
@@ -552,6 +674,11 @@ footer {
   .btn {
     padding: 12px 17px;
     font-size: 9px;
+  }
+
+  .reactor {
+    width: 112px;
+    height: 112px;
   }
 }
 
