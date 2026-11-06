@@ -1,7 +1,7 @@
 /* =====================================================
    MSR_01 — STARK INTERFACE
-   STYLE ENGINE v3.0
-   STARK ARC REACTOR EDITION
+   STYLE ENGINE v4.0
+   ROTATING TRIANGULAR ARC REACTOR
    ===================================================== */
 
 :root {
@@ -72,7 +72,7 @@ body::after {
   color: var(--bg);
 }
 
-/* CUSTOM SCROLLBAR */
+/* SCROLLBAR */
 
 ::-webkit-scrollbar {
   width: 7px;
@@ -286,159 +286,317 @@ h1 span {
 }
 
 /* =====================================================
-   STARK ARC REACTOR
-   METALLIC ARMOR + ENERGY CORE
-   ORIGINAL ORBITS PRESERVED
+   ROTATING ARC REACTOR
+   CIRCULAR METAL HOUSING
+   TRIANGULAR ENERGY CORE
    ===================================================== */
 
 .reactor-wrap {
-  width: min(340px, 75vw);
+  width: min(380px, 75vw);
   aspect-ratio: 1;
   flex-shrink: 0;
   display: grid;
   place-items: center;
   position: relative;
   isolation: isolate;
+  transition: transform 0.25s ease-out;
 }
 
-/* OUTER ENERGY HALO */
+/* BACKGROUND ENERGY HALO */
 
 .reactor-wrap::before {
   content: "";
   position: absolute;
-  width: 62%;
-  height: 62%;
+  width: 70%;
+  height: 70%;
   border-radius: 50%;
-  background: rgba(0, 174, 255, 0.22);
-  filter: blur(38px);
-  z-index: -1;
-  animation: haloPulse 3s ease-in-out infinite alternate;
+  background: rgba(0, 190, 255, 0.24);
+  filter: blur(55px);
+  z-index: -2;
+  animation: reactorHalo 3s ease-in-out infinite alternate;
 }
 
-@keyframes haloPulse {
+@keyframes reactorHalo {
   from {
     transform: scale(0.82);
-    opacity: 0.55;
+    opacity: 0.45;
   }
 
   to {
-    transform: scale(1.22);
-    opacity: 1;
+    transform: scale(1.18);
+    opacity: 0.95;
   }
 }
 
-/* METALLIC OUTER HOUSING */
+/* MAIN REACTOR BODY */
 
 .reactor {
   position: relative;
-  width: 154px;
-  height: 154px;
-  display: grid;
-  place-items: center;
-  border: 3px solid #a9c8d5;
-  clip-path: polygon(
-    50% 0%,
-    84% 10%,
-    100% 38%,
-    94% 73%,
-    69% 100%,
-    31% 100%,
-    6% 73%,
-    0% 38%,
-    16% 10%
-  );
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  isolation: isolate;
+
   background:
-    conic-gradient(
-      from 10deg,
-      #e7f8ff,
-      #344d60 12%,
-      #9db8c7 22%,
-      #182d40 34%,
-      #d9f4ff 48%,
-      #263e51 62%,
-      #b8d5e2 78%,
-      #152a3c 90%,
-      #e7f8ff
+    radial-gradient(
+      circle,
+      transparent 0 43%,
+      rgba(0, 234, 255, 0.9) 44%,
+      transparent 45%
     ),
-    #17364d;
+    repeating-conic-gradient(
+      from 0deg,
+      #101e2b 0deg 3deg,
+      #b7d2df 3deg 4deg,
+      #263e50 4deg 9deg,
+      #0b1926 9deg 11deg
+    ),
+    conic-gradient(
+      #d9f5ff,
+      #263d50,
+      #9bb7c7,
+      #12283b,
+      #e5faff,
+      #20394d,
+      #a8c6d5,
+      #102437,
+      #d9f5ff
+    );
+
+  border: 8px solid #233a4b;
+
   box-shadow:
-    0 0 18px rgba(0, 234, 255, 0.85),
-    0 0 55px rgba(8, 123, 255, 0.65),
-    inset 0 0 22px #061522;
-  animation: reactorPulse 2.4s ease-in-out infinite alternate;
+    0 0 0 3px #829eae,
+    0 0 0 7px #152a3c,
+    0 0 15px rgba(0, 234, 255, 0.9),
+    0 0 40px rgba(0, 174, 255, 0.65),
+    inset 0 0 15px #020b14,
+    inset 0 0 35px rgba(0, 234, 255, 0.3);
+
+  animation:
+    reactorRotate 24s linear infinite,
+    reactorBrightness 3s ease-in-out infinite alternate;
+
+  will-change: transform;
 }
 
-/* INNER MACHINED METAL RING */
+/* METAL OUTER RIM */
 
 .reactor::before {
   content: "";
   position: absolute;
-  inset: 13px;
-  border: 7px solid transparent;
+  inset: 12px;
   border-radius: 50%;
+  border: 5px solid #9bb7c8;
+
   background:
-    linear-gradient(#09243a, #09243a) padding-box,
-    conic-gradient(
-      from 0deg,
-      #f4ffff,
-      #52788d 12%,
-      #00eaff 22%,
-      #16384f 34%,
-      #e9ffff 50%,
-      #31566c 66%,
-      #00cfff 82%,
-      #f4ffff
-    ) border-box;
+    radial-gradient(
+      circle,
+      transparent 0 55%,
+      rgba(0, 234, 255, 0.08) 56%,
+      transparent 70%
+    );
+
   box-shadow:
-    0 0 18px rgba(0, 234, 255, 0.7),
-    inset 0 0 18px rgba(0, 234, 255, 0.55);
+    0 0 0 3px #142a3c,
+    0 0 0 5px rgba(0, 234, 255, 0.8),
+    0 0 15px rgba(0, 234, 255, 0.9),
+    inset 0 0 15px rgba(0, 234, 255, 0.5);
+
+  z-index: 1;
 }
 
-/* WHITE-HOT ENERGY LENS */
+/* TRIANGULAR ENERGY STRUCTURE */
 
 .reactor::after {
   content: "";
   position: absolute;
-  width: 48px;
-  height: 48px;
-  border: 3px solid #eaffff;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    #fff 0 12%,
-    #d8ffff 24%,
-    #42eaff 46%,
-    #008bff 68%,
-    #063b72 100%
+  inset: 25px;
+
+  clip-path: polygon(
+    8% 18%,
+    92% 18%,
+    50% 92%
   );
-  box-shadow:
-    0 0 10px #fff,
-    0 0 25px #00eaff,
-    0 0 55px #087bff,
-    inset 0 0 12px #fff;
+
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #9ef7ff 18%,
+    #00dfff 45%,
+    #087bff 75%,
+    #dfffff 100%
+  );
+
+  filter:
+    drop-shadow(0 0 5px #ffffff)
+    drop-shadow(0 0 12px #00eaff)
+    drop-shadow(0 0 22px #087bff);
+
+  z-index: 2;
 }
 
-/* REACTOR ENERGY PULSE */
+/* INNER TRIANGLE CUTOUT */
 
-@keyframes reactorPulse {
+.reactor {
+  --triangle-cutout: #071522;
+}
+
+/* INNER TRIANGLE IS CREATED USING A ROTATING ENERGY LAYER */
+
+.reactor {
+  background-color: #071522;
+}
+
+/* ENERGY SEGMENTS AND RADIAL SUPPORTS */
+
+.reactor-wrap .reactor {
+  background:
+    radial-gradient(
+      circle at center,
+      #ffffff 0 2%,
+      #bafaff 3% 5%,
+      #00dfff 6% 9%,
+      transparent 10% 100%
+    ),
+    repeating-conic-gradient(
+      from 0deg,
+      transparent 0deg 27deg,
+      #101e2b 27deg 31deg,
+      transparent 31deg 45deg
+    ),
+    radial-gradient(
+      circle,
+      #0a1c2c 0 42%,
+      #9bb9c9 43% 45%,
+      #10263a 46% 51%,
+      #d6f3ff 52% 54%,
+      #172d40 55% 61%,
+      transparent 62%
+    );
+
+  overflow: visible;
+}
+
+/* TRIANGLE FRAME — LAYERED METAL EFFECT */
+
+.reactor-wrap .reactor::after {
+  inset: 27px;
+  clip-path: polygon(
+    5% 18%,
+    95% 18%,
+    50% 94%
+  );
+
+  background:
+    linear-gradient(
+      180deg,
+      #eaffff,
+      #00dfff 45%,
+      #007bff
+    );
+
+  filter:
+    drop-shadow(0 0 3px #ffffff)
+    drop-shadow(0 0 9px #00eaff)
+    drop-shadow(0 0 18px #008cff);
+}
+
+/* INNER DARK TRIANGLE */
+
+.reactor-wrap {
+  --inner-triangle: #071522;
+}
+
+.reactor-wrap .reactor {
+  outline: none;
+}
+
+/* A SECOND ENERGY SHAPE INSIDE THE TRIANGLE */
+
+.reactor-wrap .reactor::before {
+  inset: 42px;
+  border: 0;
+  border-radius: 0;
+  clip-path: polygon(
+    10% 12%,
+    90% 12%,
+    50% 88%
+  );
+
+  background: #071522;
+
+  box-shadow:
+    inset 0 0 12px rgba(0, 234, 255, 0.65),
+    0 0 0 2px #00eaff,
+    0 0 14px rgba(0, 234, 255, 0.7);
+
+  z-index: 3;
+}
+
+/* CENTER ENERGY CORE */
+
+.reactor-wrap .reactor {
+  background:
+    radial-gradient(
+      circle at center,
+      #ffffff 0 3%,
+      #b9ffff 4% 7%,
+      #00dfff 8% 12%,
+      transparent 13%
+    ),
+    repeating-conic-gradient(
+      from 0deg,
+      transparent 0deg 27deg,
+      #142b3d 27deg 31deg,
+      transparent 31deg 45deg
+    ),
+    radial-gradient(
+      circle,
+      #0a1c2c 0 42%,
+      #9bb9c9 43% 45%,
+      #10263a 46% 51%,
+      #d6f3ff 52% 54%,
+      #172d40 55% 61%,
+      #071522 62%
+    );
+}
+
+/* FULL ROTATION */
+
+@keyframes reactorRotate {
   from {
-    filter: brightness(0.88);
-    box-shadow:
-      0 0 16px rgba(0, 234, 255, 0.65),
-      0 0 42px rgba(8, 123, 255, 0.5),
-      inset 0 0 22px #061522;
+    rotate: 0deg;
   }
 
   to {
-    filter: brightness(1.18);
-    box-shadow:
-      0 0 30px rgba(0, 234, 255, 1),
-      0 0 78px rgba(8, 123, 255, 0.85),
-      inset 0 0 28px #061522;
+    rotate: 360deg;
   }
 }
 
-/* ORIGINAL ORBIT SYSTEM — UNCHANGED */
+/* ENERGY BRIGHTNESS */
+
+@keyframes reactorBrightness {
+  from {
+    filter: brightness(0.88);
+    box-shadow:
+      0 0 0 3px #829eae,
+      0 0 0 7px #152a3c,
+      0 0 12px rgba(0, 234, 255, 0.65),
+      0 0 30px rgba(0, 174, 255, 0.45);
+  }
+
+  to {
+    filter: brightness(1.2);
+    box-shadow:
+      0 0 0 3px #c7efff,
+      0 0 0 7px #152a3c,
+      0 0 22px rgba(0, 234, 255, 1),
+      0 0 55px rgba(0, 174, 255, 0.85);
+  }
+}
+
+/* ORIGINAL ORBIT SYSTEM — PRESERVED */
 
 .orbit {
   position: absolute;
@@ -448,6 +606,7 @@ h1 span {
   border-radius: 50%;
   transform: rotateX(65deg);
   animation: orbitSpin 8s linear infinite;
+  pointer-events: none;
 }
 
 .orbit.two {
@@ -646,7 +805,7 @@ footer {
   }
 
   .reactor-wrap {
-    width: min(260px, 70vw);
+    width: min(290px, 70vw);
   }
 }
 
@@ -675,8 +834,8 @@ footer {
   }
 
   .reactor {
-    width: 112px;
-    height: 112px;
+    width: 170px;
+    height: 170px;
   }
 }
 
