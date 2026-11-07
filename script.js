@@ -1,17 +1,14 @@
 
-/* =====================================================
-   MSR_01 — STARK INTERFACE
-   JAVASCRIPT ENGINE v3.0
-   ARC REACTOR + INTERACTIVE SYSTEM
-   ===================================================== */
+/* =========================================================
+   MUHSIN S RAHMAN — STARK INTERFACE
+   JAVASCRIPT ENGINE v3.1
+   ========================================================= */
 
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // SYSTEM ELEMENTS
   const reactor = document.querySelector(".reactor");
   const reactorWrap = document.querySelector(".reactor-wrap");
-  const hero = document.querySelector(".hero");
 
   const menuBtn = document.getElementById("menuBtn");
   const nav = document.getElementById("nav");
@@ -23,16 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
   ).matches;
 
   /* =====================================================
-     01 — ARC REACTOR SYSTEM
+     01 — ARC REACTOR INTERACTION
      ===================================================== */
 
   if (reactor && reactorWrap) {
-    reactorWrap.setAttribute("role", "img");
-    reactorWrap.setAttribute(
-      "aria-label",
-      "Animated blue Arc Reactor energy core"
-    );
-
     reactorWrap.addEventListener("mouseenter", () => {
       reactorWrap.classList.add("reactor-active");
     });
@@ -44,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     reactorWrap.addEventListener("click", () => {
       reactorWrap.classList.remove("reactor-pulse");
 
-      // Restart the pulse animation.
+      // Restart click animation.
       void reactorWrap.offsetWidth;
 
       reactorWrap.classList.add("reactor-pulse");
@@ -53,11 +44,24 @@ document.addEventListener("DOMContentLoaded", () => {
         reactorWrap.classList.remove("reactor-pulse");
       }, 1200);
     });
+
+    console.log("Arc Reactor: ONLINE");
+  } else {
+    console.warn("Arc Reactor elements not found.");
   }
 
   /* =====================================================
      02 — MOBILE NAVIGATION
      ===================================================== */
+
+  function closeMenu() {
+    if (!menuBtn || !nav) return;
+
+    nav.classList.remove("active");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.setAttribute("aria-label", "Open navigation");
+    menuBtn.textContent = "☰";
+  }
 
   if (menuBtn && nav) {
     menuBtn.addEventListener("click", () => {
@@ -72,84 +76,65 @@ document.addEventListener("DOMContentLoaded", () => {
       menuBtn.textContent = isOpen ? "✕" : "☰";
     });
 
-    // Close menu after selecting a navigation link.
     nav.querySelectorAll('a[href^="#"]').forEach((link) => {
-      link.addEventListener("click", () => {
-        nav.classList.remove("active");
-
-        menuBtn.setAttribute("aria-expanded", "false");
-        menuBtn.setAttribute("aria-label", "Open navigation");
-        menuBtn.textContent = "☰";
-      });
+      link.addEventListener("click", closeMenu);
     });
 
-    // Close menu when clicking outside it.
     document.addEventListener("click", (event) => {
       if (
         nav.classList.contains("active") &&
         !nav.contains(event.target) &&
         !menuBtn.contains(event.target)
       ) {
-        nav.classList.remove("active");
-
-        menuBtn.setAttribute("aria-expanded", "false");
-        menuBtn.setAttribute("aria-label", "Open navigation");
-        menuBtn.textContent = "☰";
+        closeMenu();
       }
     });
 
-    // Close menu with Escape key.
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && nav.classList.contains("active")) {
-        nav.classList.remove("active");
-
-        menuBtn.setAttribute("aria-expanded", "false");
-        menuBtn.setAttribute("aria-label", "Open navigation");
-        menuBtn.textContent = "☰";
-
+      if (event.key === "Escape") {
+        closeMenu();
         menuBtn.focus();
       }
     });
   }
 
   /* =====================================================
-     03 — SCROLL REVEAL ENGINE
-     Uses existing CSS: .reveal and .reveal.show
+     03 — SCROLL REVEAL
+     Content stays visible even if this fails.
      ===================================================== */
 
   const revealElements = document.querySelectorAll(
-    ".hero-content, section .section-title, section .panel"
+    ".reveal, .hero-content, section .section-title, section .panel"
   );
 
   if ("IntersectionObserver" in window && !prefersReducedMotion) {
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
+    const observer = new IntersectionObserver(
+      (entries, currentObserver) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
-            observer.unobserve(entry.target);
+            currentObserver.unobserve(entry.target);
           }
         });
       },
       {
         threshold: 0.12,
-        rootMargin: "0px 0px -35px 0px"
+        rootMargin: "0px 0px -30px 0px"
       }
     );
 
     revealElements.forEach((element) => {
-      element.classList.add("reveal");
-      revealObserver.observe(element);
+      element.classList.add("show");
+      observer.observe(element);
     });
   } else {
-    // Keep all content visible when animation is unavailable.
     revealElements.forEach((element) => {
       element.classList.add("show");
     });
   }
 
   /* =====================================================
-     04 — SMOOTH SECTION NAVIGATION
+     04 — SMOOTH NAVIGATION
      ===================================================== */
 
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -172,18 +157,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* =====================================================
-     05 — HERO INTERACTION
+     05 — HERO MOUSE INTERACTION
      ===================================================== */
+
+  const hero = document.querySelector(".hero");
 
   if (hero && !prefersReducedMotion) {
     hero.addEventListener("mousemove", (event) => {
       const rect = hero.getBoundingClientRect();
 
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
+      hero.style.setProperty(
+        "--mouse-x",
+        `${event.clientX - rect.left}px`
+      );
 
-      hero.style.setProperty("--mouse-x", `${x}px`);
-      hero.style.setProperty("--mouse-y", `${y}px`);
+      hero.style.setProperty(
+        "--mouse-y",
+        `${event.clientY - rect.top}px`
+      );
     });
 
     hero.addEventListener("mouseleave", () => {
@@ -211,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "background:#00eaff;color:#050a12;font-weight:bold;padding:8px;"
   );
 
-  console.log("Arc Reactor: READY");
   console.log("Navigation: READY");
-  console.log("Scroll Engine: READY");
+  console.log("Text visibility: PROTECTED");
+  console.log("Scroll engine: READY");
 });
