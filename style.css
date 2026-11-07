@@ -1,18 +1,18 @@
 
-/* =====================================================
-   MSR_01 — STARK INTERFACE
-   STYLE ENGINE v2.0
-   GEOMETRIC ENERGY CORE EDITION
-   ===================================================== */
+/* =========================================================
+   MUHSIN S RAHMAN — STARK INTERFACE
+   STYLE ENGINE v3.1
+   CLASSIC ARC REACTOR EDITION
+   ========================================================= */
 
 :root {
   --bg: #050a12;
   --bg-secondary: #081522;
-  --panel: rgba(7, 24, 39, 0.78);
+  --panel: rgba(7, 24, 39, 0.82);
   --cyan: #00eaff;
   --blue: #087bff;
   --white: #e8fbff;
-  --muted: #8ba6b7;
+  --muted: #a2b9c9;
   --green: #58ffae;
   --border: rgba(0, 234, 255, 0.25);
   --glow: 0 0 25px rgba(0, 234, 255, 0.2);
@@ -40,8 +40,6 @@ body {
   line-height: 1.6;
 }
 
-/* BACKGROUND SYSTEM */
-
 body::before {
   content: "";
   position: fixed;
@@ -49,8 +47,8 @@ body::before {
   z-index: -2;
   pointer-events: none;
   background:
-    linear-gradient(rgba(0, 234, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 234, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(rgba(0,234,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,234,255,.035) 1px, transparent 1px);
   background-size: 42px 42px;
 }
 
@@ -60,11 +58,11 @@ body::after {
   inset: 0;
   z-index: 50;
   pointer-events: none;
-  opacity: 0.16;
+  opacity: .12;
   background: repeating-linear-gradient(
     transparent 0px,
     transparent 3px,
-    rgba(0, 234, 255, 0.025) 4px
+    rgba(0,234,255,.025) 4px
   );
 }
 
@@ -73,7 +71,9 @@ body::after {
   color: var(--bg);
 }
 
-/* CUSTOM SCROLLBAR */
+a {
+  color: inherit;
+}
 
 ::-webkit-scrollbar {
   width: 7px;
@@ -104,7 +104,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(3, 9, 17, 0.88);
+  background: rgba(3,9,17,.9);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(18px);
 }
@@ -115,6 +115,7 @@ header {
   font-size: 19px;
   font-weight: 700;
   letter-spacing: 4px;
+  text-decoration: none;
   text-shadow: 0 0 15px var(--cyan);
 }
 
@@ -131,7 +132,7 @@ nav a {
   font-size: 10px;
   text-decoration: none;
   letter-spacing: 1px;
-  transition: color 0.3s ease;
+  transition: color .3s ease;
 }
 
 nav a::after {
@@ -143,7 +144,7 @@ nav a::after {
   height: 1px;
   background: var(--cyan);
   box-shadow: 0 0 10px var(--cyan);
-  transition: width 0.3s ease;
+  transition: width .3s ease;
 }
 
 nav a:hover {
@@ -181,7 +182,7 @@ section {
 
 .section-title span {
   color: var(--cyan);
-  text-shadow: 0 0 15px rgba(0, 234, 255, 0.3);
+  text-shadow: 0 0 15px rgba(0,234,255,.3);
 }
 
 /* HERO */
@@ -217,7 +218,7 @@ h1 {
 
 h1 span {
   color: var(--cyan);
-  text-shadow: 0 0 25px rgba(0, 234, 255, 0.3);
+  text-shadow: 0 0 25px rgba(0,234,255,.3);
 }
 
 .hero p {
@@ -227,7 +228,7 @@ h1 span {
   line-height: 1.6;
 }
 
-/* SYSTEM STATUS */
+/* STATUS */
 
 .status {
   display: inline-flex;
@@ -251,9 +252,7 @@ h1 span {
 }
 
 @keyframes statusPulse {
-  50% {
-    opacity: 0.3;
-  }
+  50% { opacity: .3; }
 }
 
 /* BUTTONS */
@@ -271,184 +270,71 @@ h1 span {
   padding: 13px 25px;
   color: var(--cyan);
   border: 1px solid var(--cyan);
-  background: rgba(0, 234, 255, 0.035);
+  background: rgba(0,234,255,.035);
   font-family: var(--font-heading);
   font-size: 10px;
   letter-spacing: 1px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 }
 
 .btn:hover {
   color: var(--bg);
   background: var(--cyan);
-  box-shadow: 0 0 25px rgba(0, 234, 255, 0.4);
+  box-shadow: 0 0 25px rgba(0,234,255,.4);
   transform: translateY(-3px);
 }
 
-/* =====================================================
-   GEOMETRIC ENERGY CORE
-   NEW CENTER DESIGN — OLD ROUND GLOBE REMOVED
-   ORBITS PRESERVED
-   ===================================================== */
+/* =========================================================
+   CLASSIC ARC REACTOR
+   ========================================================= */
 
 .reactor-wrap {
   width: min(340px, 75vw);
   aspect-ratio: 1;
   flex-shrink: 0;
+  position: relative;
   display: grid;
   place-items: center;
-  position: relative;
   isolation: isolate;
+  cursor: pointer;
 }
 
-/* OUTER ENERGY HALO */
+/* Atmospheric glow */
 
 .reactor-wrap::before {
   content: "";
   position: absolute;
-  width: 58%;
-  height: 58%;
+  width: 65%;
+  height: 65%;
   border-radius: 50%;
-  background: rgba(0, 174, 255, 0.16);
-  filter: blur(35px);
+  background: rgba(0,174,255,.3);
+  filter: blur(45px);
   z-index: -1;
   animation: haloPulse 3s ease-in-out infinite alternate;
 }
 
 @keyframes haloPulse {
   from {
-    transform: scale(0.8);
-    opacity: 0.5;
+    transform: scale(.75);
+    opacity: .5;
   }
   to {
-    transform: scale(1.25);
+    transform: scale(1.2);
     opacity: 1;
   }
 }
 
-/* MAIN CORE */
-
-.reactor {
-  position: relative;
-  width: 132px;
-  height: 132px;
-  border: 2px solid rgba(185, 252, 255, 0.95);
-  border-radius: 24%;
-  transform: rotate(30deg);
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,0.95),
-      transparent 24% 68%,
-      rgba(0,234,255,0.8)
-    ),
-    conic-gradient(
-      from 25deg,
-      #063d70,
-      #00eaff,
-      #0753a5,
-      #b9fcff,
-      #063d70
-    );
-  clip-path: polygon(
-    50% 0%,
-    91% 22%,
-    100% 50%,
-    78% 91%,
-    50% 100%,
-    9% 78%,
-    0% 50%,
-    22% 9%
-  );
-  box-shadow:
-    0 0 28px rgba(0, 234, 255, 0.9),
-    0 0 70px rgba(8, 123, 255, 0.75),
-    inset 0 0 28px rgba(255,255,255,0.8);
-  animation: reactorPulse 2s ease-in-out infinite alternate;
-}
-
-/* INNER ARMOR LAYER */
-
-.reactor::before {
-  content: "";
-  position: absolute;
-  inset: 17px;
-  border: 2px solid rgba(232, 251, 255, 0.9);
-  background: radial-gradient(
-    circle,
-    #ffffff 0%,
-    #8ffaff 12%,
-    #00aaff 34%,
-    #063d70 72%
-  );
-  clip-path: polygon(
-    50% 0%,
-    91% 22%,
-    100% 50%,
-    78% 91%,
-    50% 100%,
-    9% 78%,
-    0% 50%,
-    22% 9%
-  );
-  box-shadow:
-    inset 0 0 22px #fff,
-    0 0 22px var(--cyan);
-}
-
-/* CENTRAL ENERGY DIAMOND */
-
-.reactor::after {
-  content: "";
-  position: absolute;
-  inset: 43px;
-  border: 2px solid #e8ffff;
-  background: radial-gradient(
-    circle,
-    #fff 0%,
-    #b9fcff 24%,
-    #00bfff 62%,
-    transparent 75%
-  );
-  clip-path: polygon(
-    50% 0%,
-    100% 50%,
-    50% 100%,
-    0% 50%
-  );
-  filter: drop-shadow(0 0 12px #fff);
-}
-
-/* ENERGY PULSE */
-
-@keyframes reactorPulse {
-  from {
-    box-shadow:
-      0 0 20px var(--cyan),
-      0 0 55px var(--blue),
-      inset 0 0 15px white;
-    filter: brightness(0.9);
-  }
-
-  to {
-    box-shadow:
-      0 0 45px var(--cyan),
-      0 0 110px var(--blue),
-      inset 0 0 35px white;
-    filter: brightness(1.2);
-  }
-}
-
-/* ORBIT SYSTEM — ORIGINAL ORBITS PRESERVED */
+/* Outer rotating rings */
 
 .orbit {
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 1px solid rgba(0, 234, 255, 0.65);
+  border: 2px solid rgba(0,234,255,.65);
   border-radius: 50%;
   transform: rotateX(65deg);
+  box-shadow: 0 0 15px rgba(0,234,255,.35);
   animation: orbitSpin 8s linear infinite;
 }
 
@@ -456,6 +342,7 @@ h1 span {
   width: 75%;
   height: 130%;
   transform: rotate(60deg);
+  border-color: rgba(8,123,255,.8);
   animation-duration: 12s;
 }
 
@@ -463,13 +350,115 @@ h1 span {
   width: 130%;
   height: 75%;
   transform: rotate(-60deg);
+  border-color: rgba(185,252,255,.55);
   animation-duration: 15s;
 }
 
 @keyframes orbitSpin {
-  to {
-    rotate: 360deg;
-  }
+  to { rotate: 360deg; }
+}
+
+/* Main circular reactor body */
+
+.reactor {
+  position: relative;
+  width: 154px;
+  height: 154px;
+  border-radius: 50%;
+  border: 5px double #c7fbff;
+  background:
+    radial-gradient(
+      circle,
+      #ffffff 0 5%,
+      #aafaff 9% 13%,
+      #087bff 19% 28%,
+      #062e59 43% 50%,
+      transparent 52%
+    ),
+    repeating-conic-gradient(
+      from 0deg,
+      #b9fcff 0deg 3deg,
+      #087bff 3deg 8deg,
+      #05264a 8deg 12deg
+    );
+  box-shadow:
+    0 0 18px #00eaff,
+    0 0 42px rgba(0,174,255,.95),
+    0 0 90px rgba(8,123,255,.55),
+    inset 0 0 24px #b9fcff;
+  animation: reactorEnergy 2s ease-in-out infinite alternate;
+  z-index: 2;
+}
+
+/* Inner ring */
+
+.reactor::before {
+  content: "";
+  position: absolute;
+  inset: 13px;
+  border-radius: 50%;
+  border: 4px solid rgba(190,250,255,.95);
+  background:
+    radial-gradient(
+      circle,
+      #eaffff 0 9%,
+      #00cfff 13% 24%,
+      #063d70 45% 60%,
+      transparent 63%
+    ),
+    repeating-conic-gradient(
+      #00eaff 0deg 5deg,
+      #073b70 5deg 15deg
+    );
+  box-shadow:
+    inset 0 0 20px #fff,
+    0 0 20px #00eaff;
+}
+
+/* Central energy core */
+
+.reactor::after {
+  content: "";
+  position: absolute;
+  inset: 48px;
+  border-radius: 50%;
+  border: 4px solid #e8ffff;
+  background: radial-gradient(
+    circle,
+    #fff 0 18%,
+    #b9fcff 32%,
+    #00bfff 62%,
+    #0753a5 78%
+  );
+  box-shadow:
+    0 0 14px #fff,
+    0 0 28px #00eaff,
+    0 0 45px #087bff;
+}
+
+@keyframes reactorEnergy {
+  from { filter: brightness(.85); }
+  to { filter: brightness(1.3); }
+}
+
+/* Reactor interaction */
+
+.reactor-wrap.reactor-active .reactor {
+  filter: brightness(1.5);
+  box-shadow:
+    0 0 35px #00eaff,
+    0 0 85px #087bff,
+    0 0 130px rgba(0,234,255,.75);
+}
+
+.reactor-wrap.reactor-pulse .reactor {
+  animation: reactorClickPulse 1.2s ease-out;
+}
+
+@keyframes reactorClickPulse {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.17); filter: brightness(1.9); }
+  100% { transform: scale(1); }
 }
 
 /* PANELS */
@@ -480,7 +469,7 @@ h1 span {
   background: var(--panel);
   border: 1px solid var(--border);
   backdrop-filter: blur(10px);
-  transition: 0.35s ease;
+  transition: .35s ease;
 }
 
 .panel::before {
@@ -533,18 +522,22 @@ h1 span {
 .skill {
   padding: 12px 18px;
   color: var(--cyan);
-  background: rgba(0, 234, 255, 0.05);
+  background: rgba(0,234,255,.05);
   border: 1px solid var(--border);
   font-family: var(--font-heading);
   font-size: 10px;
   letter-spacing: 1px;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .skill:hover {
-  background: rgba(0, 234, 255, 0.15);
+  background: rgba(0,234,255,.15);
   border-color: var(--cyan);
-  box-shadow: 0 0 15px rgba(0, 234, 255, 0.15);
+  box-shadow: 0 0 15px rgba(0,234,255,.15);
+}
+
+.skill-note {
+  margin-top: 22px;
 }
 
 /* TIMELINE */
@@ -570,17 +563,16 @@ h1 span {
   box-shadow: 0 0 15px var(--cyan);
 }
 
-/* REVEAL ANIMATION */
+/* =========================================================
+   TEXT VISIBILITY — CRITICAL FIX
+   Content is visible even if JavaScript fails.
+   ========================================================= */
 
-.reveal {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
+.reveal,
 .reveal.show {
   opacity: 1;
-  transform: translateY(0);
+  visibility: visible;
+  transform: none;
 }
 
 /* FOOTER */
@@ -594,7 +586,7 @@ footer {
   letter-spacing: 2px;
 }
 
-/* RESPONSIVE DESIGN */
+/* RESPONSIVE */
 
 @media (max-width: 800px) {
   header {
@@ -615,7 +607,7 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     gap: 25px;
-    background: rgba(5, 15, 26, 0.98);
+    background: rgba(5,15,26,.98);
     border-bottom: 1px solid var(--cyan);
   }
 
@@ -650,9 +642,16 @@ footer {
   .reactor-wrap {
     width: min(260px, 70vw);
   }
-}
 
-/* SMALL MOBILE */
+  .reactor {
+    width: 132px;
+    height: 132px;
+  }
+
+  .reactor::after {
+    inset: 41px;
+  }
+}
 
 @media (max-width: 420px) {
   .logo {
@@ -680,6 +679,10 @@ footer {
     width: 112px;
     height: 112px;
   }
+
+  .reactor::after {
+    inset: 34px;
+  }
 }
 
 /* ACCESSIBILITY */
@@ -688,9 +691,9 @@ footer {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: .01ms !important;
   }
 }
