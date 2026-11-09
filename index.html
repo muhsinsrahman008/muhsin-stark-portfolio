@@ -2,328 +2,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#050a12">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050a12">
+<meta name="description" content="Muhsin S Rahman — BCA student exploring cybersecurity, software development and intelligent systems.">
+<meta name="author" content="Muhsin S Rahman">
+<meta property="og:title" content="Muhsin S Rahman | Stark Interface">
+<meta property="og:description" content="Exploring technology. Building beyond ordinary.">
+<meta property="og:type" content="website">
+<title>MUHSIN S RAHMAN | STARK INTERFACE</title>
 
-  <meta name="description" content="Muhsin S Rahman — BCA student exploring cybersecurity, software development and intelligent systems.">
-  <meta name="author" content="Muhsin S Rahman">
+<link rel="icon" type="image/svg+xml" href="assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <meta property="og:title" content="Muhsin S Rahman | Stark Interface">
-  <meta property="og:description" content="Exploring technology. Building beyond ordinary.">
-  <meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css?v=3.2">
+<script src="script.js?v=3.2" defer></script>
 
-  <title>MUHSIN S RAHMAN | STARK INTERFACE</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css?v=3.1">
-<script src="script.js?v=3.1" defer></script>
+<style>
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-shadow: none;
+}
+.logo img {
+  display: block;
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 9px rgba(0,234,255,.65));
+  transition: transform .3s ease, filter .3s ease;
+}
+.logo:hover img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 16px rgba(0,234,255,.95));
+}
+@media(max-width:420px) {
+  .logo img {
+    width: 46px;
+    height: 46px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <a href="#home" class="logo" aria-label="MSR homepage">MSR</a>
-
-    <button
-      class="menu-btn"
-      id="menuBtn"
-      type="button"
-      aria-label="Open navigation"
-      aria-expanded="false"
-      aria-controls="nav">
-      ☰
-    </button>
-
-    <nav id="nav" aria-label="Main navigation">
-      <a href="#home">HOME</a>
-      <a href="#about">ABOUT</a>
-      <a href="#skills">SKILLS</a>
-      <a href="#projects">PROJECTS</a>
-      <a href="#journey">JOURNEY</a>
-      <a href="#contact">CONTACT</a>
-    </nav>
-  </header>
-
-  <main>
-
-    <!-- HERO -->
-    <section class="hero" id="home">
-
-      <div class="hero-content reveal">
-
-        <div class="eyebrow">
-          STARK INTERFACE // INITIALIZED
-        </div>
-
-        <h1>
-          MUHSIN<br>
-          <span>S RAHMAN</span>
-        </h1>
-
-        <p>
-          BCA Student. Technology Enthusiast.
-          Aspiring Cybersecurity Professional.
-          Exploring the possibilities of code, AI and innovation.
-        </p>
-
-        <div class="status">
-          SYSTEM ONLINE
-        </div>
-
-        <div class="actions">
-          <a class="btn" href="#projects">
-            EXPLORE PROJECTS
-          </a>
-
-          <a class="btn" href="#contact">
-            CONTACT ME
-          </a>
-        </div>
-
-      </div>
-
-      <!-- ARC REACTOR -->
-      <div class="reactor-wrap" id="reactor" aria-hidden="true">
-        <div class="orbit"></div>
-        <div class="orbit two"></div>
-        <div class="orbit three"></div>
-        <div class="reactor"></div>
-      </div>
-
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-
-      <h2 class="section-title reveal">
-        01 // <span>ABOUT ME</span>
-      </h2>
-
-      <div class="panel reveal">
-
-        <h3>IDENTITY PROFILE</h3>
-
-        <p>
-          I'm Muhsin S Rahman, a BCA student at Mohandas College
-          of Engineering and Technology, Kerala.
-
-          I'm interested in technology, programming,
-          artificial intelligence and cybersecurity.
-
-          I'm currently developing my technical skills
-          and exploring new ideas through practical projects.
-        </p>
-
-      </div>
-
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills">
-
-      <h2 class="section-title reveal">
-        02 // <span>SKILL MATRIX</span>
-      </h2>
-
-      <div class="panel reveal">
-
-        <h3>TECHNOLOGY DATABASE</h3>
-
-        <div class="skills">
-          <div class="skill">C — BEGINNER</div>
-          <div class="skill">C++ — BEGINNER</div>
-          <div class="skill">HTML — BEGINNER</div>
-          <div class="skill">CSS — BEGINNER</div>
-          <div class="skill">GIT & GITHUB — BEGINNER</div>
-          <div class="skill">JAVASCRIPT — LEARNING</div>
-          <div class="skill">CYBERSECURITY — LEARNING</div>
-          <div class="skill">ARTIFICIAL INTELLIGENCE — EXPLORING</div>
-          <div class="skill">FLUTTER — EXPLORING</div>
-        </div>
-
-        <p class="skill-note">
-          Skill levels represent my current learning stage.
-          Continuously improving through practice and projects.
-        </p>
-
-      </div>
-
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects">
-
-      <h2 class="section-title reveal">
-        03 // <span>PROJECTS & BUILDS</span>
-      </h2>
-
-      <div class="grid">
-
-        <article class="panel reveal">
-
-          <h3>JARVIS ASSISTANT</h3>
-
-          <p>
-            A personal AI assistant project I'm developing
-            while learning mobile app development and AI integration.
-            Still evolving, with each step focused on learning
-            and experimentation.
-          </p>
-
-          <span class="project-status">
-            DEVELOPMENT IN PROGRESS
-          </span>
-
-          <a
-            class="btn project-link"
-            href="https://github.com/muhsinsrahman008/jarvis-backend"
-            target="_blank"
-            rel="noopener noreferrer">
-            VIEW JARVIS ON GITHUB
-          </a>
-
-        </article>
-
-        <article class="panel reveal">
-
-          <h3>STARK INTERFACE</h3>
-
-          <p>
-            My personal portfolio — a futuristic interface
-            showcasing my learning journey, technical interests
-            and projects.
-          </p>
-
-          <a
-            class="btn project-link"
-            href="https://github.com/muhsinsrahman008/muhsin-stark-portfolio"
-            target="_blank"
-            rel="noopener noreferrer">
-            VIEW SOURCE CODE
-          </a>
-
-        </article>
-
-      </div>
-
-    </section>
-
-    <!-- JOURNEY -->
-    <section id="journey">
-
-      <h2 class="section-title reveal">
-        04 // <span>MY JOURNEY</span>
-      </h2>
-
-      <div class="timeline">
-
-        <article class="panel reveal">
-          <h3>2026 — BCA JOURNEY</h3>
-          <p>
-            Started my Bachelor of Computer Applications journey
-            and began exploring the world of technology.
-          </p>
-        </article>
-
-        <article class="panel reveal">
-          <h3>EXPLORING TECHNOLOGY</h3>
-          <p>
-            Learning programming, web development,
-            artificial intelligence and cybersecurity.
-          </p>
-        </article>
-
-        <article class="panel reveal">
-          <h3>FUTURE MISSION</h3>
-          <p>
-            Build meaningful technology projects and grow
-            into a cybersecurity professional.
-          </p>
-        </article>
-
-      </div>
-
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-
-      <h2 class="section-title reveal">
-        05 // <span>ESTABLISH CONNECTION</span>
-      </h2>
-
-      <div class="panel reveal">
-
-        <h3>OPEN COMMUNICATION CHANNEL</h3>
-
-        <p>
-          Let's connect, share ideas and explore technology together.
-        </p>
-
-        <div class="contact-links">
-
-          <a class="btn"
-             href="https://github.com/muhsinsrahman008"
-             target="_blank"
-             rel="noopener noreferrer">
-            GITHUB
-          </a>
-
-          <a class="btn"
-             href="https://www.linkedin.com/in/muhsin-s-rahman-1673a7431/"
-             target="_blank"
-             rel="noopener noreferrer">
-            LINKEDIN
-          </a>
-
-          <a class="btn"
-             href="https://www.instagram.com/muhsin_s_rah_/"
-             target="_blank"
-             rel="noopener noreferrer">
-            INSTAGRAM
-          </a>
-
-          <a class="btn"
-             href="https://youtube.com/@muhsinsrahman"
-             target="_blank"
-             rel="noopener noreferrer">
-            YOUTUBE
-          </a>
-
-          <a class="btn"
-             href="https://www.facebook.com/share/1E4FCVzyrR/"
-             target="_blank"
-             rel="noopener noreferrer">
-            FACEBOOK
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-
-    <p>MUHSIN S RAHMAN // MSR</p>
-
-    <p>DESIGNED WITH CURIOSITY. BUILT FOR THE FUTURE.</p>
-
-    <p>
-      © <span id="year"></span>
-      ALL SYSTEMS OPERATIONAL.
-    </p>
-
-  </footer>
+<header>
+<a href="#home" class="logo" aria-label="MSR homepage">
+<img src="assets/mark.svg" alt="Arc Reactor Logo">
+</a>
+
+<button class="menu-btn" id="menuBtn" type="button"
+aria-label="Open navigation" aria-expanded="false" aria-controls="nav">
+☰
+</button>
+
+<nav id="nav" aria-label="Main navigation">
+<a href="#home">HOME</a>
+<a href="#about">ABOUT</a>
+<a href="#skills">SKILLS</a>
+<a href="#projects">PROJECTS</a>
+<a href="#journey">JOURNEY</a>
+<a href="#contact">CONTACT</a>
+</nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+<div class="hero-content reveal">
+<div class="eyebrow">STARK INTERFACE // INITIALIZED</div>
+<h1>MUHSIN<br><span>S RAHMAN</span></h1>
+<p>
+BCA Student. Technology Enthusiast.
+Aspiring Cybersecurity Professional.
+Exploring the possibilities of code, AI and innovation.
+</p>
+<div class="status">SYSTEM ONLINE</div>
+<div class="actions">
+<a class="btn" href="#projects">EXPLORE PROJECTS</a>
+<a class="btn" href="#contact">CONTACT ME</a>
+</div>
+</div>
+
+<div class="reactor-wrap" id="reactor" aria-hidden="true">
+<div class="orbit"></div>
+<div class="orbit two"></div>
+<div class="orbit three"></div>
+<div class="reactor"></div>
+</div>
+</section>
+
+<section id="about">
+<h2 class="section-title reveal">01 // <span>ABOUT ME</span></h2>
+<div class="panel reveal">
+<h3>IDENTITY PROFILE</h3>
+<p>
+I'm Muhsin S Rahman, a BCA student at Mohandas College
+of Engineering and Technology, Kerala.
+I'm interested in technology, programming,
+artificial intelligence and cybersecurity.
+I'm currently developing my technical skills
+and exploring new ideas through practical projects.
+</p>
+</div>
+</section>
+
+<section id="skills">
+<h2 class="section-title reveal">02 // <span>SKILL MATRIX</span></h2>
+<div class="panel reveal">
+<h3>TECHNOLOGY DATABASE</h3>
+<div class="skills">
+<div class="skill">C — BEGINNER</div>
+<div class="skill">C++ — BEGINNER</div>
+<div class="skill">HTML — BEGINNER</div>
+<div class="skill">CSS — BEGINNER</div>
+<div class="skill">GIT & GITHUB — BEGINNER</div>
+<div class="skill">JAVASCRIPT — LEARNING</div>
+<div class="skill">CYBERSECURITY — LEARNING</div>
+<div class="skill">ARTIFICIAL INTELLIGENCE — EXPLORING</div>
+<div class="skill">FLUTTER — EXPLORING</div>
+</div>
+<p class="skill-note">
+Skill levels represent my current learning stage.
+Continuously improving through practice and projects.
+</p>
+</div>
+</section>
+
+<section id="projects">
+<h2 class="section-title reveal">03 // <span>PROJECTS & BUILDS</span></h2>
+<div class="grid">
+<article class="panel reveal">
+<h3>JARVIS ASSISTANT</h3>
+<p>
+A personal AI assistant project I'm developing
+while learning mobile app development and AI integration.
+Still evolving, with each step focused on learning
+and experimentation.
+</p>
+<span class="project-status">DEVELOPMENT IN PROGRESS</span>
+<a class="btn project-link"
+href="https://github.com/muhsinsrahman008/jarvis-backend"
+target="_blank" rel="noopener noreferrer">
+VIEW JARVIS ON GITHUB
+</a>
+</article>
+
+<article class="panel reveal">
+<h3>STARK INTERFACE</h3>
+<p>
+My personal portfolio — a futuristic interface
+showcasing my learning journey, technical interests
+and projects.
+</p>
+<a class="btn project-link"
+href="https://github.com/muhsinsrahman008/muhsin-stark-portfolio"
+target="_blank" rel="noopener noreferrer">
+VIEW SOURCE CODE
+</a>
+</article>
+</div>
+</section>
+
+<section id="journey">
+<h2 class="section-title reveal">04 // <span>MY JOURNEY</span></h2>
+<div class="timeline">
+<article class="panel reveal">
+<h3>2026 — BCA JOURNEY</h3>
+<p>
+Started my Bachelor of Computer Applications journey
+and began exploring the world of technology.
+</p>
+</article>
+<article class="panel reveal">
+<h3>EXPLORING TECHNOLOGY</h3>
+<p>
+Learning programming, web development,
+artificial intelligence and cybersecurity.
+</p>
+</article>
+<article class="panel reveal">
+<h3>FUTURE MISSION</h3>
+<p>
+Build meaningful technology projects and grow
+into a cybersecurity professional.
+</p>
+</article>
+</div>
+</section>
+
+<section id="contact">
+<h2 class="section-title reveal">05 // <span>ESTABLISH CONNECTION</span></h2>
+<div class="panel reveal">
+<h3>OPEN COMMUNICATION CHANNEL</h3>
+<p>Let's connect, share ideas and explore technology together.</p>
+<div class="contact-links">
+<a class="btn" href="https://github.com/muhsinsrahman008" target="_blank" rel="noopener noreferrer">GITHUB</a>
+<a class="btn" href="https://www.linkedin.com/in/muhsin-s-rahman-1673a7431/" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+<a class="btn" href="https://www.instagram.com/muhsin_s_rah_/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+<a class="btn" href="https://youtube.com/@muhsinsrahman" target="_blank" rel="noopener noreferrer">YOUTUBE</a>
+<a class="btn" href="https://www.facebook.com/share/1E4FCVzyrR/" target="_blank" rel="noopener noreferrer">FACEBOOK</a>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<p>MUHSIN S RAHMAN // MSR</p>
+<p>DESIGNED WITH CURIOSITY. BUILT FOR THE FUTURE.</p>
+<p>© <span id="year"></span> ALL SYSTEMS OPERATIONAL.</p>
+</footer>
 
 </body>
 </html>
